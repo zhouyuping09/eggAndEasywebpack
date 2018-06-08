@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+public/*
+run/
+logs/
+config/manifest.json
+app/view/*
+!app/view/README.md
+dist/
+.DS_Store
