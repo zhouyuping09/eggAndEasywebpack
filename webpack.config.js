@@ -7,20 +7,20 @@ module.exports = {
   entry: {
     include: [
       'app/web/page',
-      { 'mobile/search/app': 'app/web/page/mobile/search/app.js?loader=false' },
-      { 'mobile/kpay/app': 'app/web/page/mobile/kpay/app.js?loader=false' },
-      { 'mobile/order/orderTrack/entry': 'app/web/page/mobile/order/orderTrack/entry.js?loader=false' },
-      { 'mobile/issue/questionnaire': 'app/web/page/mobile/issue/questionnaire/entry.js?loader=false' },
-      { 'mobile/common/forget': 'app/web/page/mobile/common/forget/entry.js?loader=false' },
+      // { 'mobile/search/app': 'app/web/page/mobile/search/app.js?loader=false' },
+      // { 'mobile/kpay/app': 'app/web/page/mobile/kpay/app.js?loader=false' },
+      // { 'mobile/order/orderTrack/entry': 'app/web/page/mobile/order/orderTrack/entry.js?loader=false' },
+      // { 'mobile/issue/questionnaire': 'app/web/page/mobile/issue/questionnaire/entry.js?loader=false' },
+      // { 'mobile/common/forget': 'app/web/page/mobile/common/forget/entry.js?loader=false' },
     ],
     exclude: [
       'app/web/page/[a-z]+/component',
-      'app/web/page/test',
-      'app/web/page/html',
-      'app/web/page/mobile/search',
-      'app/web/page/mobile/order/orderTrack',
-      'app/web/page/mobile/kpay',
-      'app/web/page/mobile/issue/questionnaire'
+      // 'app/web/page/test',
+      // 'app/web/page/html',
+      // 'app/web/page/mobile/search',
+      // 'app/web/page/mobile/order/orderTrack',
+      // 'app/web/page/mobile/kpay',
+      // 'app/web/page/mobile/issue/questionnaire'
     ],
     loader: {
       client: 'app/web/framework/vue/entry/client-loader.js',
@@ -59,7 +59,8 @@ module.exports = {
   plugins: {
     buildfile: false,
     manifest: false, // old manifest feature
-    manifestDeps: true // new manifest feature, not need buildfile
+    manifestDeps: true, // new manifest feature, not need buildfile
+    serviceworker: false
   },
   cdn: UPLOAD_CDN ?
     (UPLOAD_CDN === 'prod' ?

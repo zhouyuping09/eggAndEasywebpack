@@ -4,7 +4,13 @@ exports.vuessr = {
   enable: true,
   package: 'egg-view-vue-ssr'
 };
-exports.serviceworker = {
+
+exports.validate = {
   enable: true,
-  package: 'egg-serviceworker'
+  package: 'egg-validate',
+};
+
+exports.mongoose = {
+  enable: true,
+  package: 'egg-mongoose',
 };

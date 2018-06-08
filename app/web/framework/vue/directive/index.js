@@ -7,12 +7,7 @@ import VueMeta from 'vue-meta';
 
 
 // 定制化
-Vue.use(Lazyload, {
-  preLoad: 1.3,
-  error: require(''),
-  loading: require(''),
-  attempt: 1
-});
+Vue.use(Lazyload);
 Vue.use(InfiniteScroll);
 Vue.use(VueCookie);
 Vue.use(VueLocalStorage);

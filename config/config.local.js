@@ -1,7 +1,6 @@
 const path = require('path');
 const ip = require('ip');
 const EasyWebpack = require('easywebpack-vue');
-const countryIds = require('./../app/constants/country.js');
 module.exports = app => {
   const exports = {};
 

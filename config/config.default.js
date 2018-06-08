@@ -30,7 +30,6 @@ module.exports = app => {
   exports.middleware = [
     'access',
     'accessLog',
-    'extendRequestContext',
     'errorHandler',
   ];
 
