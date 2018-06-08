@@ -1,7 +1,7 @@
 <template>
   <MobileLayout title="No Found">
     <div class="error">
-        home
+        home {{homeText.hello}}
     </div>
   </MobileLayout>
 </template>

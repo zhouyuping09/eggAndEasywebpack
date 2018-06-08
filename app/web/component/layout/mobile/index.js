@@ -29,7 +29,7 @@ const template = `
     <meta name="x5-page-mode" content="app">
     <meta name="theme-color" content="#EA5A1E">
     <meta name="format-detection" content="telephone=no, address=no">
-  <script src="http://qiniu.titohu.me/fot/textflexible.min.js"></script>
+  <script src="http://qiniu.titohu.me/fot/textflexible.js"></script>
   </head>
    <body>
     <div id="app">${content}</div>
