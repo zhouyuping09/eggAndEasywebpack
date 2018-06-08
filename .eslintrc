@@ -7,12 +7,15 @@
   "rules": {
     "arrow-parens": "off",
     "valid-jsdoc": "off",
+    "linebreak-style": "off",
     "eol-last": "off",
     "array-bracket-spacing": "off",
     "no-unused-vars": "off",
+    "no-trailing-spaces": "off",
     "no-else-return": "off",
     "strict": "off",
-    "linebreak-style": "off",
+    "no-multi-spaces": "off",
+    "no-bitwise": "off",
     "no-irregular-whitespace": [
       "error",
       {
@@ -35,9 +38,8 @@
     "es6": true
   },
   "globals": {
-    "EASY_ENV_IS_PROD": true,
-    "EASY_ENV_IS_NODE": true,
-    "EASY_ENV_IS_BROWSER": true
+    "PROD": true,
+    "isBrowser": true
   },
   "plugins": [
     "vue"
