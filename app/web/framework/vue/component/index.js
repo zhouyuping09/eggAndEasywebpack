@@ -1,5 +1,4 @@
 import Vue from 'vue';
+import MobileLayout from 'component/layout/mobile';
 
-import Layout from 'component/layout/standard';
-
-Vue.component(Layout.name, Layout);
+Vue.component(MobileLayout.name, MobileLayout);

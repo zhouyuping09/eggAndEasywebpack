@@ -10,17 +10,17 @@ App.data = () => {
 };
 
 App.init = options => {
-  if (EASY_ENV_IS_NODE) {
-    return App.server(options);
+  if (typeof window === 'object') {
+    return App.client(options);
   }
-  return App.client(options);
+  return App.server(options);
 };
 
 
 App.client = options => {
   Vue.prototype.$http = require('axios');
   if (options.store) {
-    options.store.replaceState(Object.assign({}, App.data(), options.store.state));
+    options.store.replaceState(App.data());
   } else if (window.__INITIAL_STATE__) {
     options.data = Object.assign(window.__INITIAL_STATE__, options.data && options.data());
   }
@@ -44,7 +44,9 @@ App.server = options => {
           return null;
         })
       ).then(() => {
-        context.state = Object.assign(options.store.state, context.state);
+        const serverContext = context.state;
+        context.state = options.store.state;
+        Object.assign(options.store.state, serverContext);
         return new Vue(options);
       });
     };

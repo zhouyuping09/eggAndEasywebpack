@@ -3,7 +3,7 @@ import '../filter';
 import '../directive';
 import '../component';
 
-export default function render(options) {
+exports.render = options => {
   if (options.store && options.router) {
     return context => {
       options.router.push(context.state.url);
@@ -19,7 +19,9 @@ export default function render(options) {
           return null;
         })
       ).then(() => {
-        context.state = Object.assign(options.store.state, context.state);
+        const serverContext = context.state;
+        context.state = options.store.state;
+        Object.assign(options.store.state, serverContext);
         return new Vue(options);
       });
     };
@@ -31,4 +33,4 @@ export default function render(options) {
       resolve(app);
     });
   };
-}
+};

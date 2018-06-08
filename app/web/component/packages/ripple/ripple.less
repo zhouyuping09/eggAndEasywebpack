@@ -1,0 +1,16 @@
+.kd-ripple {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &-animation {
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    background: rgba(175, 175, 175, 0.4);
+    transition: all 0.7s ease-out;
+    pointer-events: none;
+  }
+}

@@ -1,5 +1,7 @@
 const path = require('path');
 const ip = require('ip');
+const EasyWebpack = require('easywebpack-vue');
+const countryIds = require('./../app/constants/country.js');
 module.exports = app => {
   const exports = {};
 
@@ -21,7 +23,7 @@ module.exports = app => {
   };
 
   exports.webpack = {
-    browser: 'http://localhost:7001'
+    webpackConfigList: EasyWebpack.getWebpackConfig()
   };
 
   const localIP = ip.address();
@@ -33,6 +35,11 @@ module.exports = app => {
   });
 
   exports.security = { domainWhiteList };
+
+  exports.mongoose = {
+    url: 'mongodb://kikuu:kikuu123@47.96.168.213:27017/kikuu-msite',
+    options: {}
+  };
 
   return exports;
 };

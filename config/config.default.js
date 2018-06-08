@@ -13,9 +13,6 @@ module.exports = app => {
 
   exports.vuessr = {
     layout: path.join(app.baseDir, 'app/web/view/layout.html'),
-    renderOptions: {
-      basedir: path.join(app.baseDir, 'app/view')
-    }
   };
 
   exports.logger = {
@@ -31,8 +28,50 @@ module.exports = app => {
   exports.keys = '123456';
 
   exports.middleware = [
-    'access'
+    'access',
+    'accessLog',
+    'extendRequestContext',
+    'errorHandler',
   ];
+
+  exports.i18n = {
+    defaultLocale: 'en',
+    queryField: 'lang',
+    cookieFiled: 'locale',
+    cookieMaxAge: '1y',
+  };
+
+  exports.langs = ['en', 'fr'];
+
+  exports.info = {};
+
+  exports.mainHost = {
+    mobile: ['localhost']
+  };
+
+  exports.httpclient = {
+    request: {
+      timeout: 10000,
+    }
+  };
+
+  exports.security = {
+    csrf: {
+      queryName: '_csrf',
+      bodyName: '_csrf',
+    },
+    domainWhiteList: [],
+  };
+
+  exports.httpBase = {
+    common: '',
+  };
+
+  exports.customLogger = {
+    accessLog: {
+      file: path.join(app.root, 'logs/access.log'),
+    },
+  };
 
   return exports;
 };

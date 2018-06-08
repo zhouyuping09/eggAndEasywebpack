@@ -14,3 +14,14 @@ Vue.filter('removeHtml', input => {
     .replace(/<[\w\s"':=\/]*/, '');
 });
 
+Vue.filter('thousand', value => {
+  if (!value) {
+    return '';
+  }
+  if (typeof (value) !== 'string' && typeof (value) !== 'number') {
+    return value;
+  }
+  // parse number to string
+  value = value + '';
+  return value.replace(/(?=(?!^)(?:\d{3})+(?:\.|$))(\d{3}(\.\d+$)?)/g, ',$1');
+});
