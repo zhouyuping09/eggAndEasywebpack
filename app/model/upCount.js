@@ -1,9 +1,9 @@
 
 module.exports = app => {
   const mongoose = app.mongoose;
-  const upCountSchema = new mongoose.Schema({
+  const UpCountSchema = new mongoose.Schema({
     id: { type: Number },
     count: { type: Number },
   });
-  return mongoose.model('upCount', upCountSchema, 'upCount');
+  return mongoose.model('UpCount', UpCountSchema, 'upCount');
 };

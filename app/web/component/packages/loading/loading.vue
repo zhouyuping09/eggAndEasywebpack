@@ -1,12 +1,9 @@
 <template>
     <MobileLayout>
-        <div class="loading" @click="close()">
-            <Icon :type="'md_loadingCircle'" class="icon circle"></Icon>
-        </div>
+        <div class="loading" @click="close()"></div>
     </MobileLayout>
 </template>
 <script>
-  import Icon from './../icon/icon.vue';
   export default {
     name: 'loading',
     data() {
@@ -21,9 +18,6 @@
     porps: [
       'show',
     ],
-    components: {
-      Icon,
-    },
     computed: {}
   };
 </script>

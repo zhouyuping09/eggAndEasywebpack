@@ -15,7 +15,7 @@ module.exports = (options, app) => {
           ctx.body = { msg: 'System error, please try it later!' };
         } else {
           const { query } = url.parse(ctx.request.url, false);
-          await ctx.render('mobile/home/404.js', { query });
+          await ctx.render('mobile/home/404.js', { homeText: {hello: 404}});
         }
       }
     } catch (err) {
@@ -46,7 +46,7 @@ module.exports = (options, app) => {
       } else {
         ctx.status = status;
         const { query } = url.parse(ctx.request.url, false);
-        await ctx.render('mobile/home/404.js', { query });
+        await ctx.render('mobile/home/404.js', { homeText: {hello: 500} });
       }
     }
   };
