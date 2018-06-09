@@ -1,7 +1,7 @@
  <template>
   <MobileLayout title="No Found">
     <div class="error">
-        count: {{result}}
+        count: {{result.totalCount}}
     </div>
     <div class="btn" @click="upCount">点击加count</div>
     <Loading v-if="loadingShow"></Loading>
@@ -26,7 +26,10 @@
         axios.get('/other/two')
           .then(res => {
             this.loadingShow = false;
-            console.log(res);
+            if (res.data.ok) {
+              this.result.totalCount += 1;
+            }
+
           })
           .catch(err => {
             this.loadingShow = false;
@@ -35,6 +38,9 @@
 
       }
     },
+    mounted() {
+      console.log(this.result);
+    }
   };
 </script>
 <style scoped lang="less">

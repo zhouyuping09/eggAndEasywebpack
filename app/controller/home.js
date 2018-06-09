@@ -12,18 +12,14 @@ class homeController extends Controller {
 
   async modelInit() {
     const { ctx } = this;
-    const params = {
-      userId: 123456,
-      totalCount: '2',
-    };
-    const result = await ctx.service.home.serviceModelInit({params});
+    const result = await ctx.service.home.serviceModelInit();
     ctx.body = { result };
   }
 
   async otherOne() {
     const { ctx } = this;
     const params = {
-      userId: 123456,
+      userId: 123,
     };
     const result = await ctx.service.home.serviceModelGet(params);
     await ctx.render('mobile/home/mongodb.js', {
@@ -35,10 +31,11 @@ class homeController extends Controller {
   async otherTwo() {
     const { ctx } = this;
     const params = {
-      userId: 123456,
+      userId: 123,
     };
     const result = await ctx.service.home.serviceModelGet(params);
-    const data = await ctx.service.home.serviceModelUp(params);
+    result.totalCount = parseInt(result.totalCount, 10) + 1;
+    const data = await ctx.service.home.serviceModelUp(result);
     ctx.body = data;
   }
 

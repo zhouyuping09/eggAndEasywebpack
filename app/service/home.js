@@ -4,13 +4,12 @@ const Service = require('egg').Service;
 class HomeService extends Service {
 
 
-  async serviceModelInit({ userId, totalCount}) {
+  async serviceModelInit() {
     const { ctx } = this;
-    const params = {
-      userId,
-      totalCount,
-    };
-    return await ctx.model.AccountDailyCheck.create(params);
+    return await ctx.model.AccountDailyCheck.create({
+      userId: 123,
+      totalCount: 2,
+    });
   }
 
   async serviceModelGet({ userId }) {
@@ -27,7 +26,7 @@ class HomeService extends Service {
       userId,
       totalCount,
     };
-    return await ctx.model.AccountDailyCheck.update({ id: params.id }, params);
+    return await ctx.model.AccountDailyCheck.update({ userId: params.userId }, params);
   }
 
 };
