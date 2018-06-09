@@ -10,10 +10,20 @@ class homeController extends Controller {
     })
   }
 
+  async modelInit() {
+    const { ctx } = this;
+    const params = {
+      userId: 123456,
+      totalCount: '2',
+    };
+    const result = await ctx.service.home.serviceModelInit({params});
+    ctx.body = { result };
+  }
+
   async otherOne() {
     const { ctx } = this;
     const params = {
-      ids: 123456,
+      userId: 123456,
     };
     const result = await ctx.service.home.serviceModelGet(params);
     await ctx.render('mobile/home/mongodb.js', {
@@ -25,7 +35,7 @@ class homeController extends Controller {
   async otherTwo() {
     const { ctx } = this;
     const params = {
-      ids: 123456,
+      userId: 123456,
     };
     const result = await ctx.service.home.serviceModelGet(params);
     const data = await ctx.service.home.serviceModelUp(params);
@@ -34,34 +44,39 @@ class homeController extends Controller {
 
   async singleOne() {
     const { ctx } = this;
-    await ctx.render('mobile/home/singleOne.js', {
+    await ctx.renderClient('mobile/singleOne/app.js', {
       url: ctx.url,
+      count: 2234,
+      number: 3234,
     });
   }
 
   async singleThree() {
     const { ctx } = this;
-    await ctx.render('mobile/home/singleThree.js', {
+    await ctx.renderClient('mobile/singleThree/app.js', {
       url: ctx.url,
+      count: 'home',
+      number: 'page',
     });
   }
 
   async singlefour() {
     const { ctx } = this;
-    await ctx.render('mobile/home/singlefour.js', {
+    const ids = ctx.params.ids;
+    await ctx.render('mobile/singleFour/app.js', {
       url: ctx.url,
     });
   }
 
-  async modelInit() {
+  async getNumber() {
     const { ctx } = this;
-    const params = {
-      ids: 123456,
-      count: 2,
-    };
-    const result = await ctx.service.home.serviceModelInit({params});
-    ctx.body = { result };
+    const number = ctx.query.number;
+    ctx.body = {
+      number,
+    }
   }
+
+
 
 
 }

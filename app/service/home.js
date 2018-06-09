@@ -4,44 +4,31 @@ const Service = require('egg').Service;
 class HomeService extends Service {
 
 
-  async serviceModelInit({ ids, count}) {
+  async serviceModelInit({ userId, totalCount}) {
     const { ctx } = this;
     const params = {
-      ids,
-      count,
+      userId,
+      totalCount,
     };
-    await ctx.model.UpCount.create(params)
-      .catch(err => {
-        ctx.logger.error(`mongodb addAccountTotalDailyCheck failed!, currentUserId${currentUserId}`);
-        return null;
-      });
-
+    return await ctx.model.AccountDailyCheck.create(params);
   }
 
-  async serviceModelGet({ ids }) {
+  async serviceModelGet({ userId }) {
     const { ctx } = this;
     const params = {
-      ids,
+      userId,
     };
-    return await ctx.model.UpCount.findOne(params)
-      .catch(err => {
-        ctx.logger.error(`mongodb getAccountDailyCheck failed!currentUserId${currentUserId}`);
-        return null;
-      });
+    return await ctx.model.AccountDailyCheck.findOne(params)
   }
 
-  async serviceModelUp({ ids, count }) {
+  async serviceModelUp({ userId, totalCount }) {
     const { ctx } = this;
     const params = {
-      ids,
-      count,
+      userId,
+      totalCount,
     };
-    return await ctx.model.UpCount.update({ id: params.id }, params).catch(err => {
-        ctx.logger.error(`mongodb updateAccountDailyCheck failed!countryId${countryId},currentUserId${currentUserId}`);
-        return null;
-      });
+    return await ctx.model.AccountDailyCheck.update({ id: params.id }, params);
   }
-
 
 };
 

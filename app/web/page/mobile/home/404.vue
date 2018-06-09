@@ -3,6 +3,12 @@
     <div class="error">
         home {{homeText.hello}}
     </div>
+    <a href="/model/init">model init</a>
+    <a href="/other/one">model homePage</a>
+    <a href="/single/one">单页面1</a>
+    <!--<a href="/single/two">单页面1</a>-->
+    <a href="/single/three">单页面2</a>
+    <a href="/single/2/four">单页面3</a>
   </MobileLayout>
 </template>
 <script>
@@ -11,42 +17,16 @@
   };
 </script>
 <style scoped lang="less">
+  @px2rem: 36;
   .page{
     height: 100%;
   }
   .error{
-    min-height: 100%;
+    height: 24rem/@px2rem;
     background-color: #fff;
   }
-  .error-pic{
-    margin-top: 2rem;
-    width: 100%;
-  }
-  .oops{
-    text-align: center;
-    line-height: .6rem;
-    margin-bottom: .2rem;
-    margin-top: .4rem;
-    font-size: .44444444444444rem;
-  }
-  .error-desc{
-    color: #999;
-    line-height: .6rem;
-    font-size: .38888888889rem;
-    text-align: center;
-    margin-bottom: .2rem;
-  }
-  .help-list{
-    text-align: center;
-    font-size: 0;
-  }
-  .help-item{
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-    font-size: .3888888888889rem;
-  }
-  .help-item a{
-    color: #ea5a1e;
+  a{
+    width: 10rem;
+    line-height: 24rem/@px2rem;
   }
 </style>

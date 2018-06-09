@@ -7,20 +7,17 @@ module.exports = {
   entry: {
     include: [
       'app/web/page',
-      // { 'mobile/search/app': 'app/web/page/mobile/search/app.js?loader=false' },
-      // { 'mobile/kpay/app': 'app/web/page/mobile/kpay/app.js?loader=false' },
-      // { 'mobile/order/orderTrack/entry': 'app/web/page/mobile/order/orderTrack/entry.js?loader=false' },
-      // { 'mobile/issue/questionnaire': 'app/web/page/mobile/issue/questionnaire/entry.js?loader=false' },
-      // { 'mobile/common/forget': 'app/web/page/mobile/common/forget/entry.js?loader=false' },
+      { 'mobile/singleOne/app': 'app/web/page/mobile/singleOne/app.js?loader=false' },
+      { 'mobile/singleThree/app': 'app/web/page/mobile/singleThree/app.js?loader=false' },
+      { 'mobile/singleFour/app': 'app/web/page/mobile/singleFour/app.js?loader=false' },
     ],
     exclude: [
       'app/web/page/[a-z]+/component',
-      // 'app/web/page/test',
-      // 'app/web/page/html',
-      // 'app/web/page/mobile/search',
-      // 'app/web/page/mobile/order/orderTrack',
-      // 'app/web/page/mobile/kpay',
-      // 'app/web/page/mobile/issue/questionnaire'
+      'app/web/page/test',
+      'app/web/page/html',
+      'app/web/page/mobile/singleOne',
+      'app/web/page/mobile/singleThree',
+      'app/web/page/mobile/singleFour',
     ],
     loader: {
       client: 'app/web/framework/vue/entry/client-loader.js',
